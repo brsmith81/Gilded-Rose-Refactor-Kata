@@ -1,9 +1,7 @@
 ﻿using System;
-using csharpcore;
 
 namespace GildedRose
 {
-    // I could also make the class implement a Interface, but YAGNI.  Don't need it at this time
     public class ItemRules : IItemRules
 
     {
@@ -24,7 +22,6 @@ namespace GildedRose
             // once sell by date has passed, quality degrades twice as fast
             int updateFactor = (sellIn <= 0) ? 2 : 1;
 
-            //stockItem.Quality = Math.Min(MaxQuality, Math.Max(MinQuality, stockItem.Quality + (updateAmt * updateFactor)));
             return Math.Min(MaxQuality, Math.Max(MinQuality, quality + (updateAmt * updateFactor)));
         }
 
@@ -64,7 +61,10 @@ namespace GildedRose
 
     public class BackStageRules : ItemRules
     {
-        protected new int updateAmt = 1;
+        public BackStageRules()
+        {
+            updateAmt = 1;
+        }
 
         override public int UpdateQuality( int quality, int sellIn )
         {

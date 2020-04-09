@@ -6,12 +6,12 @@ namespace GildedRose
     {
         readonly private IItemRules _updateRules;
 
-        public StockItem( string Name, int Sellin, int Quality, IItemRules Rules )
+        public StockItem( string name, int sellIn, int quality, IItemRules Rules )
         { 
-            this.Name = Name;
-            this.SellIn = Sellin;
+            this.Name = name;
+            this.SellIn = sellIn;
             _updateRules = Rules;
-            this.Quality = _updateRules.SetStartQuality( Quality );
+            this.Quality = _updateRules.SetStartQuality( quality );
         }
 
         public void Update()
