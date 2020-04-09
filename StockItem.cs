@@ -4,9 +4,9 @@ namespace GildedRose
 {
     public class StockItem : Item
     {
-        readonly private ItemRules _updateRules;
+        readonly private IItemRules _updateRules;
 
-        public StockItem( string Name, int Sellin, int Quality, ItemRules Rules )
+        public StockItem( string Name, int Sellin, int Quality, IItemRules Rules )
         { 
             this.Name = Name;
             this.SellIn = Sellin;

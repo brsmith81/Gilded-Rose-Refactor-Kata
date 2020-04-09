@@ -4,7 +4,7 @@ using csharpcore;
 namespace GildedRose
 {
     // I could also make the class implement a Interface, but YAGNI.  Don't need it at this time
-    public class ItemRules
+    public class ItemRules : IItemRules
 
     {
         // hardcode updateAmt in each class rather than passing in as a parameter
@@ -13,22 +13,22 @@ namespace GildedRose
         protected const int MinQuality = 0;
         protected const int MaxQuality = 50;
 
-        virtual public int SetStartQuality( int quality )
+        virtual public int SetStartQuality(int quality)
         {
-            return Math.Max( MinQuality, Math.Min(MaxQuality, quality) );
+            return Math.Max(MinQuality, Math.Min(MaxQuality, quality));
         }
 
-        virtual public int UpdateQuality( int quality, int sellIn )
+        virtual public int UpdateQuality(int quality, int sellIn)
         {
 
             // once sell by date has passed, quality degrades twice as fast
             int updateFactor = (sellIn <= 0) ? 2 : 1;
 
             //stockItem.Quality = Math.Min(MaxQuality, Math.Max(MinQuality, stockItem.Quality + (updateAmt * updateFactor)));
-            return Math.Min(MaxQuality, Math.Max(MinQuality, quality + ( updateAmt * updateFactor )));
+            return Math.Min(MaxQuality, Math.Max(MinQuality, quality + (updateAmt * updateFactor)));
         }
 
-        virtual public int UpdateSellIn( int sellIn)
+        virtual public int UpdateSellIn(int sellIn)
         {
             return --sellIn;
         }
