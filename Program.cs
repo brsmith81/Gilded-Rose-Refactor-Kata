@@ -24,16 +24,16 @@ namespace GildedRose
                     System.Console.WriteLine(Items[j].FormatForOutput());
                 }
                 Console.WriteLine("");
-                app.UpdateItems();
+                app.UpdateQuality();
             }
         }
 
         private static IList<Item> LoadInventory()
         {
             return new List<Item>{
-                new StockItem( "+5 Dexterity Vest", 10, 20, new UpdateRules() ),
+                new StockItem( "+5 Dexterity Vest", 10, 20, new ItemRules() ),
                 new StockItem( "Aged Brie", 2, 0, new AgedBrieRules() ),
-                new StockItem( "Elixir of the Mongoose", 5, 7, new UpdateRules() ),
+                new StockItem( "Elixir of the Mongoose", 5, 7, new ItemRules() ),
                 new StockItem( "Sulfuras, Hand of Ragnaros", 0, 80, new SulfurasRules() ),
                 new StockItem( "Sulfuras, Hand of Ragnaros", -1, 80, new SulfurasRules() ),
                 new StockItem( "Backstage passes to a TAFKAL80ETC concert", 15, 20, new BackStageRules() ),

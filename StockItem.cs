@@ -4,16 +4,14 @@ namespace GildedRose
 {
     public class StockItem : Item
     {
-        readonly private UpdateRules _updateRules;
+        readonly private ItemRules _updateRules;
 
-        public StockItem( string Name, int Sellin, int Quality, UpdateRules Rules )
+        public StockItem( string Name, int Sellin, int Quality, ItemRules Rules )
         { 
             this.Name = Name;
             this.SellIn = Sellin;
-            this.Quality = Quality;
             _updateRules = Rules;
-            _updateRules.SetStartQuality(this);
-
+            this.Quality = _updateRules.SetStartQuality( Quality );
         }
 
         public void Update()
