@@ -16,8 +16,8 @@ namespace GildedRose
 
         public void Update()
         {
-            _updateRules.UpdateQuality( this );
-            _updateRules.UpdateSellIn( this );
+            this.Quality = _updateRules.UpdateQuality( this.Quality, this.SellIn );
+            this.SellIn = _updateRules.UpdateSellIn( this.SellIn );
         }
 
     }

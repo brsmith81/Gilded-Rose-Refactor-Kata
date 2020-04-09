@@ -18,18 +18,19 @@ namespace GildedRose
             return Math.Max( MinQuality, Math.Min(MaxQuality, quality) );
         }
 
-        virtual public void UpdateQuality( Item stockItem )
+        virtual public int UpdateQuality( int quality, int sellIn )
         {
 
             // once sell by date has passed, quality degrades twice as fast
-            int updateFactor = (stockItem.SellIn <= 0) ? 2 : 1;
+            int updateFactor = (sellIn <= 0) ? 2 : 1;
 
-            stockItem.Quality = Math.Min(MaxQuality, Math.Max(MinQuality, stockItem.Quality + ( updateAmt * updateFactor )));
+            //stockItem.Quality = Math.Min(MaxQuality, Math.Max(MinQuality, stockItem.Quality + (updateAmt * updateFactor)));
+            return Math.Min(MaxQuality, Math.Max(MinQuality, quality + ( updateAmt * updateFactor )));
         }
 
-        virtual public void UpdateSellIn(Item stockItem)
+        virtual public int UpdateSellIn( int sellIn)
         {
-            --stockItem.SellIn;
+            return --sellIn;
         }
     }
 
@@ -42,12 +43,14 @@ namespace GildedRose
             return 80;
         }
 
-        override public void UpdateQuality( Item stockItem )
+        override public int UpdateQuality(int quality, int sellIn )
         {
+            return quality;
         }
 
-        override public void UpdateSellIn( Item stockItem )
+        override public int UpdateSellIn( int sellIn )
         {
+            return sellIn;
         }
     }
 
@@ -63,23 +66,26 @@ namespace GildedRose
     {
         protected new int updateAmt = 1;
 
-        override public void UpdateQuality(Item stockItem)
+        override public int UpdateQuality( int quality, int sellIn )
         {
-            switch (stockItem.SellIn)
+            int updatedQuality;
+
+            switch (sellIn)
             {
                 case var n when n <= 0:
-                    stockItem.Quality = 0;
+                    updatedQuality = 0;
                     break;
                 case var n when n < 6 :
-                    stockItem.Quality = Math.Min(MaxQuality, Math.Max(MinQuality, stockItem.Quality + 3));
+                    updatedQuality = Math.Min(MaxQuality, Math.Max(MinQuality, quality + 3));
                     break;
                 case var n when n < 11:
-                    stockItem.Quality = Math.Min(MaxQuality, Math.Max(MinQuality, stockItem.Quality + 2));
+                    updatedQuality = Math.Min(MaxQuality, Math.Max(MinQuality, quality + 2));
                     break;
                 default:
-                    stockItem.Quality = Math.Min(MaxQuality, Math.Max(MinQuality, stockItem.Quality + updateAmt));
+                    updatedQuality = Math.Min(MaxQuality, Math.Max(MinQuality, quality + updateAmt));
                     break;
             }
+            return updatedQuality;
         }
     }
 
