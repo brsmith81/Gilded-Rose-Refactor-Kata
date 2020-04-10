@@ -6,11 +6,13 @@ namespace GildedRose
     {
         readonly private IItemRules _updateRules;
 
-        public StockItem( string name, int sellIn, int quality, IItemRules Rules )
+        //public StockItem(string name, int sellIn, int quality, IItemRules Rules)
+        public StockItem( string name, int sellIn, int quality )
         { 
             this.Name = name;
             this.SellIn = sellIn;
-            _updateRules = Rules;
+            //    _updateRules = Rules;
+            _updateRules = ItemTypeFactory.GetItemRule( name );
             this.Quality = _updateRules.SetStartQuality( quality );
         }
 

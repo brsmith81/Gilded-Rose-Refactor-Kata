@@ -31,6 +31,21 @@ namespace GildedRose
         private static IList<Item> LoadInventory()
         {
             return new List<Item>{
+                new StockItem( "+5 Dexterity Vest", 10, 20 ),
+                new StockItem( "Aged Brie", 2, 0 ),
+                new StockItem( "Elixir of the Mongoose", 5, 7 ),
+                new StockItem( "Sulfuras, Hand of Ragnaros", 0, 80 ),
+                new StockItem( "Sulfuras, Hand of Ragnaros", -1, 80 ),
+                new StockItem( "Backstage passes to a TAFKAL80ETC concert", 15, 20 ),
+                new StockItem( "Backstage passes to a TAFKAL80ETC concert", 10, 49 ),
+                new StockItem( "Backstage passes to a TAFKAL80ETC concert", 5, 49 ),
+                new StockItem( "Conjured Mana Cake", 3, 6 )
+            };
+        }
+
+/*        private static IList<Item> LoadInventory()
+        {
+            return new List<Item>{
                 new StockItem( "+5 Dexterity Vest", 10, 20, new ItemRules() ),
                 new StockItem( "Aged Brie", 2, 0, new AgedBrieRules() ),
                 new StockItem( "Elixir of the Mongoose", 5, 7, new ItemRules() ),
@@ -42,5 +57,6 @@ namespace GildedRose
 				new StockItem( "Conjured Mana Cake", 3, 6, new ConjuredRules() )
             };
         }
+*/
     }
 }

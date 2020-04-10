@@ -10,7 +10,7 @@ namespace GildedRose
         [Fact]
         public void Backstage()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Backstage passes to a TAFKAL80ETC concert", 11, 20, new BackStageRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Backstage passes to a TAFKAL80ETC concert", 11, 20) };
             var app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.Equal(21, Items[0].Quality);
@@ -24,7 +24,7 @@ namespace GildedRose
         [Fact]
         public void Backstage1()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Backstage passes to a TAFKAL80ETC concert", 6, 47, new BackStageRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Backstage passes to a TAFKAL80ETC concert", 6, 47 ) };
             var app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.Equal(49, Items[0].Quality);
@@ -38,7 +38,7 @@ namespace GildedRose
         [Fact]
         public void Backstage2()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Backstage passes to a TAFKAL80ETC concert", 1, 35, new BackStageRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Backstage passes to a TAFKAL80ETC concert", 1, 35 ) };
             var app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.Equal(38, Items[0].Quality);
@@ -52,7 +52,7 @@ namespace GildedRose
         [Fact]
         public void Sulfuras()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Sulfuras, Hand of Ragnaros", 2, 80, new SulfurasRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Sulfuras, Hand of Ragnaros", 2, 80 ) };
             var app = new GildedRose(Items);
 
             app.UpdateQuality();
@@ -67,7 +67,7 @@ namespace GildedRose
         [Fact]
         public void SulfurasQualityIsResetTo80()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Sulfuras, Hand of Ragnaros", -1, 20, new SulfurasRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Sulfuras, Hand of Ragnaros", -1, 20 ) };
             new GildedRose(Items);
 
             Assert.Equal(80, Items[0].Quality);
@@ -77,7 +77,7 @@ namespace GildedRose
         [Fact]
         public void AgedBrie()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Aged Brie", 2, 0, new AgedBrieRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Aged Brie", 2, 0 ) };
             var app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.Equal(1, Items[0].Quality);
@@ -95,7 +95,7 @@ namespace GildedRose
         [Fact]
         public void AgedBrie50()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Aged Brie", 2, 50, new AgedBrieRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Aged Brie", 2, 50 ) };
             var app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.Equal(50, Items[0].Quality);
@@ -105,7 +105,7 @@ namespace GildedRose
         [Fact]
         public void Conjured()
         {
-            IList<Item> Items = new List<Item> { new StockItem("Conjured Mana Cake", 2, 6, new ConjuredRules()) };
+            IList<Item> Items = new List<Item> { new StockItem("Conjured Mana Cake", 2, 6) };
             var app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.Equal(4, Items[0].Quality);
