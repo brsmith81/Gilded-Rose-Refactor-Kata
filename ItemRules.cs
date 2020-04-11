@@ -33,16 +33,19 @@ namespace GildedRose
 
     public class SulfurasRules : ItemRules
     {
+        // never has to be sold or decrease in quality
         protected new int updateAmt = 0;
+        // quality is always constant for sulfuras
+        protected new const int MaxQuality = 80;
 
         override public int SetStartQuality(int quality)
         {
-            return 80;
+            return MaxQuality;
         }
 
         override public int UpdateQuality(int quality, int sellIn )
         {
-            return quality;
+            return MaxQuality;
         }
 
         override public int UpdateSellIn( int sellIn )
