@@ -12,7 +12,7 @@ namespace GildedRose
             this.Name = name;
             this.SellIn = sellIn;
             //    _updateRules = Rules;
-            _updateRules = ItemTypeFactory.GetItemRule( name );
+            _updateRules = ItemRuleFactory.GetItemRule( name );
             this.Quality = _updateRules.SetStartQuality( quality );
         }
 

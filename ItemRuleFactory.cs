@@ -1,6 +1,6 @@
 ﻿namespace GildedRose
 {
-    public static class ItemTypeFactory
+    public static class ItemRuleFactory
     {
         public static IItemRules GetItemRule(string itemType)
         {
